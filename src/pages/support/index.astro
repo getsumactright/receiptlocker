@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import { CONTACT_EMAIL, url } from '../../config';
+---
+<Base
+  title="ReceiptLocker Support"
+  description="Help with ReceiptLocker: scanning, the accountant pack, backups, exporting and getting in touch."
+  current="support"
+>
+  <article class="doc">
+    <h1>Support</h1>
+    <p class="date">Questions, problems or ideas.</p>
+
+    <div class="slipnote">
+      <p>Email <a href={`mailto:${CONTACT_EMAIL}`} style="color:inherit">{CONTACT_EMAIL}</a>. Tell us your iPhone or iPad model and what you were doing. Please don't send receipts or other personal information; we don't need them to help.</p>
+    </div>
+    <div class="tear" aria-hidden="true"></div>
+
+    <h2>A receipt read the wrong total or date</h2>
+    <p>On the Review screen, tap the field and correct it before you tap File it. Already filed? Open the receipt from Receipts and edit it; the change is kept in its history.</p>
+
+    <h2>Moving to a new iPhone or iPad</h2>
+    <p>Your receipts are part of your device's own iCloud or computer backup. Restore the new device from that backup and ReceiptLocker comes back with everything in it. If you've turned backup off under More → Storage, use Export everything first and keep the file somewhere safe.</p>
+
+    <h2>Sending receipts to your accountant</h2>
+    <p>Go to More → Accountant pack, pick the quarters, type who it's for, and share it with Mail, Messages or Files. Your accountant gets a PDF per quarter with each receipt's photo, plus spreadsheets.</p>
+
+    <h2>Getting everything out</h2>
+    <p>More → Storage → Export everything saves every receipt photo and a spreadsheet of them in one file you can keep or send.</p>
+
+    <h2>Requirements</h2>
+    <p>iPhone or iPad with iOS 18 or later. No account and no internet connection needed.</p>
+
+    <h2>Privacy</h2>
+    <p>ReceiptLocker collects nothing. Read the <a href={url('privacy/')}>privacy policy</a>.</p>
+  </article>
+</Base>

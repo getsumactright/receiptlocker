@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import { CONTACT_EMAIL } from '../../config';
+---
+<Base
+  title="ReceiptLocker Privacy Policy"
+  description="ReceiptLocker collects no data. Your receipts and photos stay on your iPhone or iPad."
+  current="privacy"
+>
+  <article class="doc">
+    <h1>Privacy Policy</h1>
+    <p class="date">Effective October 20, 2026</p>
+
+    <div class="slipnote">
+      <p><strong>ReceiptLocker collects nothing.</strong> There is no account, no server, no analytics, no advertising and no tracking. Your receipts, photos and business details stay on your iPhone or iPad. We can't see them.</p>
+    </div>
+    <div class="tear" aria-hidden="true"></div>
+
+    <h2>Who we are</h2>
+    <p>ReceiptLocker is an iPhone and iPad app published by Brian Montenegro (We Can Build That). This policy covers the ReceiptLocker app distributed through the App Store and TestFlight.</p>
+
+    <h2>What stays on your device</h2>
+    <p>Everything you put into ReceiptLocker is stored on your iPhone or iPad: receipt photos, the vendor, amount, date and category of each receipt, your business name and jobs, and the accountant packs you make. The files are protected by your device's built-in data protection, and the app can be locked with Face ID or your passcode.</p>
+    <p>Receipts are read on your device using Apple's on-device text recognition. Photos are never sent anywhere to be read.</p>
+
+    <h2>What we collect</h2>
+    <p>Nothing. ReceiptLocker has no servers, no sign-in, no sync service, and no third-party analytics, advertising or tracking code. We don't sell, share or receive personal information, because we never have it.</p>
+
+    <h2>When something leaves your device</h2>
+    <p>Only in these ways, and only your own copies:</p>
+    <ul>
+      <li><strong>Your device's backup.</strong> Your receipts are included in your iPhone's or iPad's own iCloud or computer backup, so they come back if you restore or move to a new device. That backup is made by Apple and stored under your Apple Account; we have no access to it. You can leave receipts out of it under More → Storage → "Include in backup".</li>
+      <li><strong>Export.</strong> When you tap Export everything, your receipt photos and a spreadsheet of them are put in one file that goes wherever you choose to save or send it.</li>
+      <li><strong>Sending a pack or CSV.</strong> When you email or share an accountant pack or CSV, it goes wherever you send it, through Mail or the app you pick.</li>
+    </ul>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><strong>Camera:</strong> to scan receipts.</li>
+      <li><strong>Photos:</strong> to import a receipt you pick. ReceiptLocker only sees the photos you choose and never adds to your library.</li>
+      <li><strong>Face ID:</strong> to lock the app. Face ID is handled by iOS; ReceiptLocker never receives your face data.</li>
+    </ul>
+
+    <h2>Deleting your data</h2>
+    <ul>
+      <li>Delete a receipt in the app; it waits 30 days in Recently deleted, then is gone for good, photo included.</li>
+      <li>More → Delete everything erases everything ReceiptLocker stores on that device, after offering you an export first.</li>
+      <li>Deleting ReceiptLocker from your device also deletes everything it stored there. Backups made before then keep a copy until they are replaced or deleted in Settings.</li>
+    </ul>
+
+    <h2>Beta testing</h2>
+    <p>If you test ReceiptLocker through Apple's TestFlight, Apple may share crash reports and any feedback or screenshots you choose to send with us, as described in Apple's TestFlight terms. We use them only to fix problems.</p>
+
+    <h2>Children</h2>
+    <p>ReceiptLocker is a bookkeeping tool for businesses and isn't directed at children under 13.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, we'll update this page and its effective date. We won't start collecting data without saying so here first.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  </article>
+</Base>
