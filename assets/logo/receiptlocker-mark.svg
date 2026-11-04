@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img">
+  <title>ReceiptLocker</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0" stop-color="#1D1E19"/>
+      <stop offset="1" stop-color="#0B0B0B"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" rx="229" fill="url(#bg)"/>
+  <path fill="#C9F542" fill-rule="evenodd" d="M268 512A52 52 0 0 1 320 460V360A192 192 0 0 1 704 360V460A52 52 0 0 1 756 512V820L715 868L674 820L634 868L593 820L552 868L512 820L471 868L431 820L390 868L349 820L309 868L268 820Z M408 460V360A104 104 0 0 1 616 360V460Z M512 556A48 48 0 0 1 540 643L549 700H475L484 643A48 48 0 0 1 512 556Z"/>
+</svg>
