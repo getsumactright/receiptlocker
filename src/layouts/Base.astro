@@ -3,6 +3,7 @@ import '@fontsource-variable/bricolage-grotesque/standard.css';
 import '@fontsource-variable/dm-sans';
 import '@fontsource-variable/martian-mono/standard.css';
 import '../styles/global.css';
+import Social from '../components/Social.astro';
 import { APP_STORE_URL, CONTACT_EMAIL, url } from '../config';
 
 interface Props {
@@ -44,6 +45,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       <a href={url('privacy/')} aria-current={current === 'privacy' ? 'page' : undefined}>Privacy</a>
       <a href={url('support/')} aria-current={current === 'support' ? 'page' : undefined}>Support</a>
     </nav>
+    <Social />
     {APP_STORE_URL
       ? <a class="badge" href={APP_STORE_URL}><img src={url('badges/app-store-black.svg')} alt="Download on the App Store" width="120" height="40"></a>
       : <span class="soon-head"><span class="badge soon"><img src={url('badges/app-store-black.svg')} alt="Coming soon to the App Store" width="120" height="40"></span><small>Coming soon</small></span>}
@@ -60,6 +62,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       <a href={url('support/')}>Support</a>
       <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
     </nav>
+    <Social />
     <span class="copy">© 2026 Brian Montenegro · We Can Build That</span>
   </footer>
 </body>

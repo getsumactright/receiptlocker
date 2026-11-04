@@ -5,6 +5,12 @@ export const APP_STORE_URL = '';
 
 export const CONTACT_EMAIL = 'privacy@wecanbuildthat.org';
 
+/** Social profiles. An empty URL shows the icon as "coming soon", unlinked. */
+export const SOCIAL: { name: string; href: string }[] = [
+  { name: 'Instagram', href: 'https://www.instagram.com/receiptlockerapp/' },
+  { name: 'TikTok', href: '' },
+];
+
 /** Path to a WebVTT caption file in public/, or '' until the voiceover script is in. */
 export const FILM_CAPTIONS = '';
 
