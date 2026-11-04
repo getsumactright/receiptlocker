@@ -1,0 +1,308 @@
+---
+import Base from '../layouts/Base.astro';
+import { APP_STORE_URL, CATEGORIES, FILM_CAPTIONS, url } from '../config';
+
+const live = Boolean(APP_STORE_URL);
+if (!live) console.warn('[receiptlocker] APP_STORE_URL is empty: the App Store badges render unlinked.');
+if (!FILM_CAPTIONS) console.warn('[receiptlocker] FILM_CAPTIONS is empty: the film has no captions yet.');
+
+// A decorative barcode drawn from the name, so it is the same on every build.
+const bars: { x: number; w: number }[] = [];
+let x = 0;
+for (const ch of 'RECEIPTLOCKER-READY') {
+  const n = ch.charCodeAt(0);
+  for (const bit of [n & 3, (n >> 2) & 3, (n >> 4) & 3]) {
+    const w = bit + 1;
+    bars.push({ x, w });
+    x += w + ((n >> 1) & 1) + 1;
+  }
+}
+
+const faq: [string, string][] = [
+  ['Does it need the internet?', 'No. Receipts are read on your iPhone or iPad with Apple’s on-device text recognition, so scanning and filing work anywhere, signal or not.'],
+  ['Where are my receipts kept?', 'On your device, in its protected storage, and in your iPhone’s or iPad’s own backup unless you turn that off. There is no ReceiptLocker server to keep them on.'],
+  ['What if I lose my phone?', 'Restore your iPhone from its iCloud or computer backup and your receipts come back with it. You can also export everything to a file whenever you like.'],
+  ['Can my accountant open what I send?', 'Yes. The accountant pack is PDFs with every receipt’s photo, plus spreadsheets that open in Excel, Numbers or Google Sheets.'],
+  ['What does it cost?', 'One purchase on the App Store. No subscription and no account to make.'],
+  ['Which devices does it run on?', 'iPhone and iPad with iOS 18 or later.'],
+];
+---
+<Base
+  title="ReceiptLocker: receipts, ready for tax time"
+  description="Scan business receipts on your iPhone or iPad. They’re read on the device, filed to their Schedule C line, and ready for your accountant. No account, no server."
+>
+  <div class="roll">
+
+    <!-- Header of the receipt -->
+    <section class="step hero" aria-labelledby="hero-h">
+      <div class="say">
+        <h1 id="hero-h">Receipts, ready for <span class="lit">tax time.</span></h1>
+        <p>Scan a receipt and it’s read on your iPhone, filed to its Schedule C line, and kept on your device. Your accountant gets one tidy pack.</p>
+        <div class="act" id="get">
+          {live
+            ? <a class="badge" href={APP_STORE_URL}><img src={url('badges/app-store-black.svg')} alt="Download on the App Store" width="156" height="52"></a>
+            : <span class="badge soon"><img src={url('badges/app-store-black.svg')} alt="Coming soon to the App Store" width="156" height="52"></span>}
+          <small>{live ? 'One purchase · iPhone and iPad' : 'Coming soon · iPhone and iPad'}</small>
+        </div>
+      </div>
+      <div class="paper first" aria-label="ReceiptLocker, summarized as a receipt">
+        <div class="mouth" aria-hidden="true"><span class="led"></span></div>
+        <p class="big c">RECEIPTLOCKER</p>
+        <p class="c">Receipts for one-person businesses</p>
+        <p class="c dim">Terminal: your iPhone · Cashier: you</p>
+        <p class="c dim" data-today>Today</p>
+        <hr class="rule">
+        <p class="ln dim"><span>Item</span><span class="lead"></span><span class="v">Price</span></p>
+        <p class="ln"><span>Scan and read on device</span><span class="lead"></span><span class="v">Incl</span></p>
+        <p class="ln"><span>Filed by Schedule C line</span><span class="lead"></span><span class="v">Incl</span></p>
+        <p class="ln"><span>Totals by quarter</span><span class="lead"></span><span class="v">Incl</span></p>
+        <p class="ln"><span>Accountant pack</span><span class="lead"></span><span class="v">Incl</span></p>
+        <p class="ln"><span>Face ID lock</span><span class="lead"></span><span class="v">Incl</span></p>
+        <hr class="rule">
+        <div class="tear" aria-hidden="true"></div>
+      </div>
+      <div class="slip-col">
+        <figure class="slip film" data-film data-src={url('video/receiptlocker-film.mp4')} data-captions={FILM_CAPTIONS ? url(FILM_CAPTIONS) : ''}>
+          <svg class="clip" viewBox="0 0 22 64" aria-hidden="true"><path d="M7 58V12a4 4 0 0 1 8 0v40a7 7 0 0 1-14 0V8a10 10 0 0 1 20 0v38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <div class="frame">
+            <video muted loop playsinline preload="metadata" poster={url('video/receiptlocker-poster.jpg')} aria-hidden="true">
+              <source src={url('video/receiptlocker-preview.mp4')} type="video/mp4">
+            </video>
+            <button class="play" type="button">
+              <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#0c0c0d"/><path d="M10.5 8.2v9.6l7.6-4.8z" fill="#c9f542"/></svg>
+              <span>Watch the story<small>1:00</small></span>
+            </button>
+          </div>
+          <figcaption>Sixty seconds: from a box of receipts to a pack for the accountant.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Scan -->
+    <section class="step" id="how" aria-labelledby="scan-h">
+      <div class="say">
+        <h2 id="scan-h">Scan the pile.</h2>
+        <p>Point your camera at a receipt, or a few in a row, and the edges are found for you. Already took photos? Pick them from your library.</p>
+      </div>
+      <div class="paper">
+        <div class="tear up" aria-hidden="true"></div>
+        <p class="sec">* Scan *</p>
+        <p class="ln"><span>Camera scan</span><span class="lead"></span><span class="v">Yes</span></p>
+        <p class="ln"><span>Several pages at once</span><span class="lead"></span><span class="v">Yes</span></p>
+        <p class="ln"><span>From your photos</span><span class="lead"></span><span class="v">Yes</span></p>
+        <p class="ln"><span>Edges found for you</span><span class="lead"></span><span class="v">Yes</span></p>
+        <hr class="rule">
+        <div class="tear" aria-hidden="true"></div>
+      </div>
+      <div class="slip-col"></div>
+    </section>
+
+    <!-- Read -->
+    <section class="step" aria-labelledby="read-h">
+      <div class="say">
+        <h2 id="read-h">Read on your iPhone. Never uploaded.</h2>
+        <p>The vendor, date and total are read right on the device. You check them, tap File it, and the photo stays where it is.</p>
+      </div>
+      <div class="paper">
+        <div class="tear up" aria-hidden="true"></div>
+        <p class="sec">* Read *</p>
+        <p class="ln"><span>Vendor</span><span class="lead"></span><span class="v">Coastal Tile Supply</span></p>
+        <p class="ln"><span>Date</span><span class="lead"></span><span class="v">10/19/2026</span></p>
+        <p class="ln"><span>Total</span><span class="lead"></span><span class="v">843.16</span></p>
+        <p class="ln"><span>Read on</span><span class="lead"></span><span class="v">This iPhone</span></p>
+        <p class="ln hl"><span>Uploaded</span><span class="lead"></span><span class="v">No</span></p>
+        <p class="note">Example from the app’s sample receipt.</p>
+        <hr class="rule">
+        <div class="tear" aria-hidden="true"></div>
+      </div>
+      <div class="slip-col">
+        <figure class="slip" style="--tilt:-1.6deg">
+          <svg class="clip" viewBox="0 0 22 64" aria-hidden="true"><path d="M7 58V12a4 4 0 0 1 8 0v40a7 7 0 0 1-14 0V8a10 10 0 0 1 20 0v38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <div class="shot"><img src={url('shots/02-review.webp')} alt="ReceiptLocker’s Review screen: Coastal Tile Supply, Oct 19 2026, total 843.16, read on this iPhone" width="900" height="1650" loading="lazy" decoding="async"></div>
+          <figcaption>Review: check what was read, then file it.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- File -->
+    <section class="step" aria-labelledby="file-h">
+      <div class="say">
+        <h2 id="file-h">Filed where your accountant looks.</h2>
+        <p>Every category maps to its line on Schedule C, so what you file is what the return needs. Tag a client or job if you like.</p>
+      </div>
+      <div class="paper">
+        <div class="tear up" aria-hidden="true"></div>
+        <p class="sec">* File *</p>
+        <p class="ln dim"><span>Category</span><span class="lead"></span><span class="v">Sch C line</span></p>
+        {CATEGORIES.map(([name, line]) => (
+          <p class="ln"><span>{name}</span><span class="lead"></span><span class="v">{line}</span></p>
+        ))}
+        <p class="note">Home office goes to Form 8829; Materials &amp; stock to Part III, cost of goods sold.</p>
+        <hr class="rule">
+        <div class="tear" aria-hidden="true"></div>
+      </div>
+      <div class="slip-col"></div>
+    </section>
+
+    <!-- Totals -->
+    <section class="step" aria-labelledby="totals-h">
+      <div class="say">
+        <h2 id="totals-h">The year, by quarter.</h2>
+        <p>See what you’ve spent this quarter and this year, by category and by Schedule C line. Handy when estimated taxes come due.</p>
+      </div>
+      <div class="paper">
+        <div class="tear up" aria-hidden="true"></div>
+        <p class="sec">* Totals *</p>
+        <p class="ln"><span>Q1 · Jan–Mar</span><span class="lead"></span><span class="v">1,808.44</span></p>
+        <p class="ln"><span>Q2 · Apr–Jun</span><span class="lead"></span><span class="v">4,013.06</span></p>
+        <p class="ln"><span>Q3 · Jul–Sep</span><span class="lead"></span><span class="v">2,415.91</span></p>
+        <p class="ln"><span>Q4 · Oct–Dec</span><span class="lead"></span><span class="v">489.71</span></p>
+        <p class="ln hl"><span>Year so far</span><span class="lead"></span><span class="v">8,727.12</span></p>
+        <p class="note">Sample numbers from the app’s demo business, Rivera Tile &amp; Stone.</p>
+        <hr class="rule">
+        <div class="tear" aria-hidden="true"></div>
+      </div>
+      <div class="slip-col"></div>
+    </section>
+
+    <!-- Pack -->
+    <section class="step" aria-labelledby="pack-h">
+      <div class="say">
+        <h2 id="pack-h">One pack for your accountant.</h2>
+        <p>Pick the quarters, type who it’s for, and send it the way you already do: Mail, Messages, Files.</p>
+      </div>
+      <div class="paper">
+        <div class="tear up" aria-hidden="true"></div>
+        <p class="sec">* Accountant pack *</p>
+        <p class="ln"><span>PDF per quarter, with photos</span><span class="lead"></span><span class="v">Yes</span></p>
+        <p class="ln"><span>Receipts spreadsheet</span><span class="lead"></span><span class="v">CSV</span></p>
+        <p class="ln"><span>Category totals</span><span class="lead"></span><span class="v">CSV</span></p>
+        <p class="ln"><span>Their name on every page</span><span class="lead"></span><span class="v">Yes</span></p>
+        <p class="ln"><span>Export everything</span><span class="lead"></span><span class="v">Any time</span></p>
+        <hr class="rule">
+        <div class="tear" aria-hidden="true"></div>
+      </div>
+      <div class="slip-col">
+        <figure class="slip" style="--tilt:-1.2deg">
+          <svg class="clip" viewBox="0 0 22 64" aria-hidden="true"><path d="M7 58V12a4 4 0 0 1 8 0v40a7 7 0 0 1-14 0V8a10 10 0 0 1 20 0v38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <div class="shot"><img src={url('shots/05-pack.webp')} alt="ReceiptLocker’s Accountant pack screen: quarters to include, the accountant’s name, and what the pack contains" width="900" height="1514" loading="lazy" decoding="async"></div>
+          <figcaption>The pack: pick quarters, add a name, send.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Private -->
+    <section class="step" aria-labelledby="private-h">
+      <div class="say">
+        <h2 id="private-h">Yours alone.</h2>
+        <p>No account to make, no server to trust, nothing tracked. Lock the app with Face ID; the camera still works so a receipt is never lost.</p>
+      </div>
+      <div class="paper">
+        <div class="tear up" aria-hidden="true"></div>
+        <p class="sec">* Privacy *</p>
+        <p class="ln"><span>Account</span><span class="lead"></span><span class="v">None</span></p>
+        <p class="ln"><span>Server</span><span class="lead"></span><span class="v">None</span></p>
+        <p class="ln"><span>Tracking</span><span class="lead"></span><span class="v">None</span></p>
+        <p class="ln"><span>Face ID lock</span><span class="lead"></span><span class="v">On</span></p>
+        <p class="ln"><span>Backup</span><span class="lead"></span><span class="v">Your device’s own</span></p>
+        <p class="ln hl"><span>Data collected</span><span class="lead"></span><span class="v">Nothing</span></p>
+        <hr class="rule">
+        <div class="tear" aria-hidden="true"></div>
+      </div>
+      <div class="slip-col"></div>
+    </section>
+
+    <!-- Total -->
+    <section class="step" aria-labelledby="total-h">
+      <div class="say">
+        <h2 id="total-h">Ready when your accountant is.</h2>
+        <div class="act">
+          {live
+            ? <a class="badge" href={APP_STORE_URL}><img src={url('badges/app-store-black.svg')} alt="Download on the App Store" width="156" height="52"></a>
+            : <span class="badge soon"><img src={url('badges/app-store-black.svg')} alt="Coming soon to the App Store" width="156" height="52"></span>}
+          <small>{live ? 'iPhone and iPad · iOS 18 or later' : 'Coming soon · iPhone and iPad · iOS 18 or later'}</small>
+        </div>
+      </div>
+      <div class="paper last">
+        <div class="tear up" aria-hidden="true"></div>
+        <p class="ln total hl"><span>Total</span><span class="lead"></span><span class="v">Ready</span></p>
+        <p class="ln"><span>Paid</span><span class="lead"></span><span class="v">One purchase</span></p>
+        <p class="ln"><span>Subscription</span><span class="lead"></span><span class="v">None</span></p>
+        <hr class="rule">
+        <svg class="barcode" viewBox={`0 0 ${x} 40`} preserveAspectRatio="none" aria-hidden="true">
+          {bars.map((b) => <rect x={b.x} y="0" width={b.w} height="40" fill="currentColor" />)}
+        </svg>
+        <p class="c store">Keep this receipt</p>
+        <p class="c dim">Thank you</p>
+      </div>
+      <div class="slip-col"></div>
+    </section>
+    <div class="tear tear-end" aria-hidden="true"></div>
+  </div>
+
+  <section class="fine" aria-labelledby="fine-h">
+    <h2 id="fine-h">The fine print</h2>
+    <div class="faq">
+      {faq.map(([q, a]) => (
+        <details>
+          <summary>{q}<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <script>
+    // The receipt is printed today, on the visitor's own clock.
+    const today = document.querySelector('[data-today]');
+    if (today) today.textContent = new Date().toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+
+    // Print-head pass: each line prints when its stretch of paper scrolls in.
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const lines = (paper: Element) =>
+      paper.querySelectorAll<HTMLElement>('.ln, .sec, .big, .total, .store, .c');
+    if (!('IntersectionObserver' in window) || still) {
+      document.querySelectorAll('.paper').forEach((p) => lines(p).forEach((l) => l.classList.add('on')));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            lines(e.target).forEach((l, i) => {
+              l.style.setProperty('--i', String(i));
+              l.classList.add('on');
+            });
+            io.unobserve(e.target);
+          }
+        },
+        { rootMargin: '0px 0px -12% 0px' },
+      );
+      document.querySelectorAll('.paper').forEach((p) => io.observe(p));
+    }
+
+    // The film: a silent loop until asked, then the full story with sound.
+    const film = document.querySelector<HTMLElement>('[data-film]');
+    const video = film?.querySelector('video');
+    if (film && video) {
+      if (still) video.removeAttribute('loop');
+      else video.play().catch(() => {});
+      film.querySelector('button')?.addEventListener('click', () => {
+        video.removeAttribute('loop');
+        video.removeAttribute('aria-hidden');
+        video.setAttribute('aria-label', 'ReceiptLocker: the story, one minute');
+        video.innerHTML = '';
+        video.src = film.dataset.src!;
+        if (film.dataset.captions) {
+          const t = document.createElement('track');
+          Object.assign(t, { kind: 'captions', srclang: 'en', label: 'English', src: film.dataset.captions, default: true });
+          video.appendChild(t);
+        }
+        video.muted = false;
+        video.controls = true;
+        film.classList.add('playing');
+        video.play().catch(() => {});
+        video.focus();
+      });
+    }
+  </script>
+</Base>

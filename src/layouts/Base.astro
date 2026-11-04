@@ -1,0 +1,66 @@
+---
+import '@fontsource-variable/bricolage-grotesque/standard.css';
+import '@fontsource-variable/dm-sans';
+import '@fontsource-variable/martian-mono/standard.css';
+import '../styles/global.css';
+import { APP_STORE_URL, CONTACT_EMAIL, url } from '../config';
+
+interface Props {
+  title: string;
+  description: string;
+  current?: 'home' | 'privacy' | 'support';
+}
+const { title, description, current = 'home' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="theme-color" content="#0c0c0d">
+  <link rel="canonical" href={canonical}>
+  <link rel="icon" href={url('assets/logo/receiptlocker-mark.svg')} type="image/svg+xml">
+  <link rel="icon" href={url('assets/logo/favicon-32.png')} sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href={url('assets/logo/apple-touch-icon.png')}>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={new URL(url('og.jpg'), Astro.site)}>
+  <meta name="twitter:card" content="summary_large_image">
+  <script is:inline>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="head">
+    <a class="home" href={url('/')} aria-label="ReceiptLocker home">
+      <img src={url('assets/logo/receiptlocker-lockup-on-dark.svg')} alt="ReceiptLocker" width="150" height="34">
+    </a>
+    <nav aria-label="Site">
+      <a class="hide-sm" href={url('/#how')}>How it works</a>
+      <a href={url('privacy/')} aria-current={current === 'privacy' ? 'page' : undefined}>Privacy</a>
+      <a href={url('support/')} aria-current={current === 'support' ? 'page' : undefined}>Support</a>
+    </nav>
+    {APP_STORE_URL
+      ? <a class="badge" href={APP_STORE_URL}><img src={url('badges/app-store-black.svg')} alt="Download on the App Store" width="120" height="40"></a>
+      : <span class="soon-head"><span class="badge soon"><img src={url('badges/app-store-black.svg')} alt="Coming soon to the App Store" width="120" height="40"></span><small>Coming soon</small></span>}
+  </header>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <footer class="foot">
+    <img src={url('assets/logo/receiptlocker-lockup-on-dark.svg')} alt="" width="124" height="28">
+    <nav aria-label="Footer">
+      <a href={url('privacy/')}>Privacy</a>
+      <a href={url('support/')}>Support</a>
+      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+    </nav>
+    <span class="copy">© 2026 Brian Montenegro · We Can Build That</span>
+  </footer>
+</body>
+</html>

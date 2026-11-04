@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T08:00:00Z",
+  "title": "Design System: ReceiptLocker site",
+  "extensions": {
+    "colorMeta": {
+      "lime": { "role": "primary", "displayName": "Highlighter Lime", "canonical": "#c9f542", "tonalRamp": ["oklch(15% 0.05 123)", "oklch(26% 0.08 123)", "oklch(37% 0.11 123)", "oklch(48% 0.14 123)", "oklch(59% 0.17 123)", "oklch(70% 0.19 123)", "oklch(82% 0.2 123)", "oklch(92% 0.2 123)"] },
+      "night": { "role": "neutral", "displayName": "Night", "canonical": "#0c0c0d", "tonalRamp": ["oklch(15% 0.002 286)", "oklch(26% 0.003 286)", "oklch(37% 0.004 286)", "oklch(48% 0.004 286)", "oklch(59% 0.004 286)", "oklch(70% 0.003 286)", "oklch(82% 0.002 286)", "oklch(95% 0.002 286)"] },
+      "night-line": { "role": "neutral", "displayName": "Night Rule", "canonical": "#232326", "tonalRamp": ["oklch(15% 0.004 286)", "oklch(26% 0.005 286)", "oklch(37% 0.005 286)", "oklch(48% 0.005 286)", "oklch(59% 0.005 286)", "oklch(70% 0.004 286)", "oklch(82% 0.003 286)", "oklch(95% 0.002 286)"] },
+      "text": { "role": "neutral", "displayName": "Bright Text", "canonical": "#f2f2ee", "tonalRamp": ["oklch(15% 0.005 106)", "oklch(26% 0.005 106)", "oklch(37% 0.005 106)", "oklch(48% 0.005 106)", "oklch(59% 0.005 106)", "oklch(70% 0.005 106)", "oklch(82% 0.005 106)", "oklch(95.5% 0.005 106)"] },
+      "text-2": { "role": "neutral", "displayName": "Soft Text", "canonical": "#b4b5af", "tonalRamp": ["oklch(15% 0.007 110)", "oklch(26% 0.007 110)", "oklch(37% 0.007 110)", "oklch(48% 0.007 110)", "oklch(59% 0.007 110)", "oklch(70% 0.007 110)", "oklch(76% 0.007 110)", "oklch(95% 0.005 110)"] },
+      "text-3": { "role": "neutral", "displayName": "Quiet Text", "canonical": "#8f908a", "tonalRamp": ["oklch(15% 0.007 110)", "oklch(26% 0.007 110)", "oklch(37% 0.007 110)", "oklch(48% 0.007 110)", "oklch(64% 0.007 110)", "oklch(70% 0.007 110)", "oklch(82% 0.006 110)", "oklch(95% 0.005 110)"] },
+      "paper": { "role": "neutral", "displayName": "Thermal Paper", "canonical": "#f3f3f0", "tonalRamp": ["oklch(15% 0.004 106)", "oklch(26% 0.004 106)", "oklch(37% 0.004 106)", "oklch(48% 0.004 106)", "oklch(59% 0.004 106)", "oklch(70% 0.004 106)", "oklch(82% 0.004 106)", "oklch(96.2% 0.004 106)"] },
+      "paper-2": { "role": "neutral", "displayName": "Paper Shade", "canonical": "#e7e7e2", "tonalRamp": ["oklch(15% 0.006 106)", "oklch(26% 0.006 106)", "oklch(37% 0.006 106)", "oklch(48% 0.006 106)", "oklch(59% 0.006 106)", "oklch(70% 0.006 106)", "oklch(82% 0.006 106)", "oklch(92.5% 0.006 106)"] },
+      "ink": { "role": "neutral", "displayName": "Printed Ink", "canonical": "#1f2023", "tonalRamp": ["oklch(15% 0.006 270)", "oklch(23% 0.006 270)", "oklch(37% 0.006 270)", "oklch(48% 0.006 270)", "oklch(59% 0.006 270)", "oklch(70% 0.005 270)", "oklch(82% 0.004 270)", "oklch(95% 0.003 270)"] },
+      "ink-2": { "role": "neutral", "displayName": "Faded Ink", "canonical": "#54565b", "tonalRamp": ["oklch(15% 0.008 265)", "oklch(26% 0.008 265)", "oklch(37% 0.008 265)", "oklch(45% 0.009 265)", "oklch(59% 0.008 265)", "oklch(70% 0.007 265)", "oklch(82% 0.005 265)", "oklch(95% 0.003 265)"] },
+      "ink-rule": { "role": "neutral", "displayName": "Ink Rule", "canonical": "#9c9d98", "tonalRamp": ["oklch(15% 0.006 110)", "oklch(26% 0.006 110)", "oklch(37% 0.006 110)", "oklch(48% 0.006 110)", "oklch(59% 0.006 110)", "oklch(68% 0.006 110)", "oklch(82% 0.005 110)", "oklch(95% 0.004 110)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The one hero headline on the night." },
+      "headline": { "displayName": "Headline", "purpose": "Each section's statement beside the roll; the fine-print heading." },
+      "title": { "displayName": "Title", "purpose": "Section heads on privacy and support pages." },
+      "body": { "displayName": "Body", "purpose": "Prose on the night; FAQ questions at 600." },
+      "lede": { "displayName": "Lede", "purpose": "Paragraph under each headline, capped at 32ch." },
+      "label": { "displayName": "Label", "purpose": "Captions, small print under the badge, footer, nav." },
+      "receipt": { "displayName": "Receipt", "purpose": "Every line printed on paper: uppercase, condensed, tabular figures, dotted leaders." },
+      "receipt-total": { "displayName": "Receipt Total", "purpose": "The TOTAL line at the end of the roll." }
+    },
+    "shadows": [
+      { "name": "slip-lift", "value": "0 0 0 1px #2c2d31, 0 22px 50px rgb(0 0 0 / 0.55), 0 4px 10px rgb(0 0 0 / 0.4)", "purpose": "Screenshot slips clipped to the roll." },
+      { "name": "mounted-still", "value": "0 0 0 10px var(--paper), 0 0 0 11px var(--paper-2), 0 30px 70px rgb(0 0 0 / 0.6), 0 6px 14px rgb(0 0 0 / 0.4)", "purpose": "The film still on its paper mat." },
+      { "name": "printer-mouth", "value": "0 1px 0 #34353a inset, 0 10px 24px rgb(0 0 0 / 0.5)", "purpose": "The feed slot the paper emerges from (gradient #26272a to #17181a, slot #050506)." },
+      { "name": "clip", "value": "drop-shadow(0 3px 3px rgb(0 0 0 / 0.5))", "purpose": "Filter on the SVG paperclips (#b9bab4)." },
+      { "name": "play", "value": "0 10px 24px rgb(0 0 0 / 0.45)", "purpose": "Play button at rest." },
+      { "name": "play-hover", "value": "0 14px 28px rgb(0 0 0 / 0.5)", "purpose": "Play button on hover." },
+      { "name": "led-glow", "value": "0 0 8px rgb(201 245 66 / 0.8)", "purpose": "The printer's lime status LED." },
+      { "name": "head-fade", "value": "linear-gradient(rgb(12 12 13 / 0.6), transparent) 18px", "purpose": "Fade under the sticky head instead of a border." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All state transitions and the highlighter swipe." },
+      { "name": "print-pass", "value": "clip-path 380ms steps(16, end), 45ms stagger per line", "purpose": "Each paper line prints left to right when its segment scrolls in; off under reduced motion and without JS." },
+      { "name": "highlighter-swipe", "value": "background-size 900ms ease-out, 420ms delay", "purpose": "Lime stroke sweeps across a highlight line after it prints." },
+      { "name": "press", "value": "160ms ease-out; hover translateY(-1px), active scale(0.97)", "purpose": "Play button feedback." },
+      { "name": "disclose", "value": "220ms ease-out rotate(45deg)", "purpose": "FAQ plus icon opening." }
+    ],
+    "breakpoints": [
+      { "name": "roll-tears", "value": "1080px", "purpose": "At and below: single column, paper in torn segments, film before paper in the hero, FAQ one column." },
+      { "name": "phone", "value": "560px", "purpose": "At and below: head badge hidden, smaller receipt type and padding." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Play Button",
+      "kind": "button",
+      "refersTo": "button-play",
+      "description": "The film's play control: lime pill with a night disc icon and the runtime.",
+      "html": "<button class=\"ds-play\" type=\"button\"><svg viewBox=\"0 0 26 26\" aria-hidden=\"true\"><circle cx=\"13\" cy=\"13\" r=\"13\" fill=\"#0c0c0d\"/><path d=\"M10.5 8.2v9.6l7.6-4.8z\" fill=\"#c9f542\"/></svg><span>Watch the story<small>1:00</small></span></button>",
+      "css": ".ds-play { display: inline-flex; align-items: center; gap: 10px; border: 0; border-radius: 999px; cursor: pointer; padding: 12px 20px 12px 14px; background: var(--lime, #c9f542); color: var(--night, #0c0c0d); font: 600 1rem/1 'DM Sans Variable', 'DM Sans', system-ui, sans-serif; box-shadow: 0 10px 24px rgb(0 0 0 / 0.45); transition: transform 160ms cubic-bezier(0.16,1,0.3,1), box-shadow 160ms cubic-bezier(0.16,1,0.3,1); white-space: nowrap; } .ds-play svg { width: 26px; height: 26px; } .ds-play small { font-weight: 400; opacity: 0.8; margin-left: 4px; font-size: inherit; } .ds-play:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgb(0 0 0 / 0.5); } .ds-play:active { transform: scale(0.97); } .ds-play:focus-visible { outline: 2px solid #c9f542; outline-offset: 3px; }"
+    },
+    {
+      "name": "Receipt Paper",
+      "kind": "custom",
+      "refersTo": "receipt-paper",
+      "description": "A segment of the thermal roll: section head, leader lines, one highlighted line, dashed rule, sawtooth tear.",
+      "html": "<div class=\"ds-paper\"><p class=\"ds-sec\">* Privacy *</p><p class=\"ds-ln\"><span>Account</span><span class=\"ds-lead\"></span><span>None</span></p><p class=\"ds-ln\"><span>Server</span><span class=\"ds-lead\"></span><span>None</span></p><p class=\"ds-ln ds-hl\"><span>Data collected</span><span class=\"ds-lead\"></span><span>Nothing</span></p><hr class=\"ds-rule\"></div><div class=\"ds-tear\"></div>",
+      "css": ".ds-paper { width: 360px; background: #f3f3f0; color: #1f2023; font-family: 'Martian Mono Variable', 'Martian Mono', ui-monospace, monospace; font-stretch: 78%; font-size: 0.875rem; line-height: 1.85; letter-spacing: 0.01em; text-transform: uppercase; font-variant-numeric: tabular-nums; padding: 28px 28px 8px; } .ds-paper p { margin: 0; } .ds-sec { text-align: center; font-weight: 700; letter-spacing: 0.24em; margin-bottom: 6px !important; } .ds-ln { display: flex; align-items: baseline; gap: 0.7ch; } .ds-lead { flex: 1; min-width: 1ch; border-bottom: 1.5px dotted #9c9d98; transform: translateY(-0.32em); } .ds-hl { margin: 0 -8px !important; padding: 0 8px; background: linear-gradient(#c9f542, #c9f542) no-repeat 0 60% / 100% 74%; font-weight: 700; } .ds-rule { border: 0; border-top: 1.5px dashed #9c9d98; margin: 16px 0; } .ds-tear { width: 416px; height: 14px; background: #f3f3f0; -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 18px 100%; mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 18px 100%; }"
+    },
+    {
+      "name": "Screenshot Slip",
+      "kind": "card",
+      "refersTo": "slip-shot",
+      "description": "An app screen clipped to the roll: tilted, paperclipped, lifted, with a quiet caption.",
+      "html": "<figure class=\"ds-slip\"><svg class=\"ds-clip\" viewBox=\"0 0 22 64\" aria-hidden=\"true\"><path d=\"M7 58V12a4 4 0 0 1 8 0v40a7 7 0 0 1-14 0V8a10 10 0 0 1 20 0v38\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"/></svg><div class=\"ds-shot\"></div><figcaption>Review: check what was read, then file it.</figcaption></figure>",
+      "css": ".ds-slip { position: relative; margin: 40px 0 0; width: 220px; transform: rotate(-1.6deg); } .ds-shot { height: 360px; border-radius: 22px; overflow: hidden; background: linear-gradient(#18181a, #0c0c0d); box-shadow: 0 0 0 1px #2c2d31, 0 22px 50px rgb(0 0 0 / 0.55), 0 4px 10px rgb(0 0 0 / 0.4); } .ds-clip { position: absolute; top: -26px; left: 38px; width: 22px; height: 64px; z-index: 2; color: #b9bab4; filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.5)); } .ds-slip figcaption { margin-top: 14px; padding-left: 28px; color: #8f908a; font: 400 0.875rem/1.45 'DM Sans Variable', 'DM Sans', system-ui, sans-serif; transform: rotate(1.6deg); }"
+    },
+    {
+      "name": "Site Head",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky night head: lockup left, quiet links right, current page bright.",
+      "html": "<header class=\"ds-head\"><strong class=\"ds-mark\">ReceiptLocker</strong><nav><a href=\"#\">How it works</a><a href=\"#\" aria-current=\"page\">Privacy</a><a href=\"#\">Support</a></nav></header>",
+      "css": ".ds-head { height: 72px; display: flex; align-items: center; gap: 32px; padding: 0 32px; background: #0c0c0d; color: #f2f2ee; font: 400 1rem 'DM Sans Variable', 'DM Sans', system-ui, sans-serif; } .ds-mark { font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.02em; } .ds-head nav { margin-left: auto; display: flex; gap: 32px; font-size: 0.95rem; } .ds-head nav a { color: #b4b5af; text-decoration: none; padding: 8px 2px; } .ds-head nav a:hover, .ds-head nav a[aria-current='page'] { color: #f2f2ee; } .ds-head nav a:focus-visible { outline: 2px solid #c9f542; outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Headline with Highlighter",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Display headline on the night with its key phrase struck through with lime, and a lede.",
+      "html": "<div class=\"ds-say\"><h1>Receipts, ready for <span class=\"ds-lit\">tax time.</span></h1><p>Scan a receipt and it's read on your iPhone, filed to its Schedule C line, and kept on your device.</p></div>",
+      "css": ".ds-say { background: #0c0c0d; padding: 32px; max-width: 34rem; } .ds-say h1 { font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.04em; font-size: 4rem; line-height: 0.92; margin: 0; color: #f2f2ee; text-wrap: balance; } .ds-lit { color: #0c0c0d; background: linear-gradient(#c9f542, #c9f542) no-repeat 0 62% / 100% 70%; padding: 0 0.08em; margin: 0 -0.04em; -webkit-box-decoration-break: clone; box-decoration-break: clone; } .ds-say p { color: #b4b5af; margin: 1.25rem 0 0; max-width: 32ch; font: 400 1.125rem/1.55 'DM Sans Variable', 'DM Sans', system-ui, sans-serif; }"
+    },
+    {
+      "name": "Fine Print Row",
+      "kind": "custom",
+      "refersTo": "faq-item",
+      "description": "Disclosure row on the night; plus turns lime and rotates when open.",
+      "html": "<details class=\"ds-faq\"><summary>Does it need the internet?<svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M10 4v12M4 10h12\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg></summary><p>No. Receipts are read on your iPhone or iPad, so scanning and filing work anywhere.</p></details>",
+      "css": ".ds-faq { background: #0c0c0d; color: #f2f2ee; border-top: 1px solid #232326; font-family: 'DM Sans Variable', 'DM Sans', system-ui, sans-serif; padding: 0 24px; } .ds-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; padding: 20px 0; font-weight: 600; font-size: 1.0625rem; } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq summary svg { flex: none; width: 20px; height: 20px; margin-top: 3px; color: #8f908a; transition: transform 220ms cubic-bezier(0.16,1,0.3,1); } .ds-faq[open] summary svg { transform: rotate(45deg); color: #c9f542; } .ds-faq summary:focus-visible { outline: 2px solid #c9f542; outline-offset: 3px; border-radius: 6px; } .ds-faq p { margin: -4px 0 22px; color: #b4b5af; max-width: 60ch; line-height: 1.6; }"
+    },
+    {
+      "name": "Document Slipnote",
+      "kind": "card",
+      "refersTo": "doc-slipnote",
+      "description": "The key statement on privacy and support pages, printed on a short torn paper slip.",
+      "html": "<div class=\"ds-slipnote\"><p>ReceiptLocker collects nothing. Your receipts stay on your device.</p></div><div class=\"ds-slipnote-tear\"></div>",
+      "css": ".ds-slipnote { width: 420px; background: #f3f3f0; color: #1f2023; font-family: 'Martian Mono Variable', 'Martian Mono', ui-monospace, monospace; font-stretch: 80%; text-transform: uppercase; font-size: 0.875rem; line-height: 1.8; padding: 24px 26px 30px; } .ds-slipnote p { margin: 0; } .ds-slipnote-tear { width: 472px; height: 14px; background: #f3f3f0; -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 18px 100%; mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 18px 100%; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Receipt Roll",
+    "overview": "The site is a single strip of cool thermal paper feeding down a near-black night. Persuasion happens in two registers that never mix: big, tight Bricolage Grotesque headlines and DM Sans prose stand on the night, while the facts are printed on the paper in an uppercase, condensed receipt mono, one dotted-leader line per thing the app really does. Screenshots and the film are not cards; they are slips clipped to the roll with a paperclip, tilted a degree or two, hanging over the paper's right edge.\n\nDensity is that of a real receipt: tight line spacing, tabular figures, dashed rules between sections, a sawtooth tear where the paper breaks. Colour is almost absent. The night, the paper and the ink carry everything; lime is a signal, never a fill for its own sake. Motion is the printer's: lines print in left to right in stepped passes as each stretch of paper scrolls into view, and the highlighter swipes across the line that matters once it has printed.\n\nOn desktop the roll is a three-column grid (copy, strip, slips) with each section's copy sticky against its own stretch of paper. Below 1080px the roll tears into pieces: each section becomes copy, then slip, then a torn segment of paper, centred at strip width.",
+    "keyCharacteristics": [
+      "One continuous paper strip (460px) on a night ground, centred in a three-column roll.",
+      "Two type worlds: display and prose on the night, condensed uppercase mono on the paper.",
+      "Lime as highlighter stroke and interactive signal only.",
+      "Evidence (screens, film) arrives as tilted slips clipped to the roll, with real drop shadows.",
+      "Motion is a stepped print-head pass; reduced motion gets the receipt already printed."
+    ],
+    "rules": [
+      { "name": "The Highlighter Rule", "body": "On paper, lime appears only as a stroke behind ink, on at most one line per section plus the TOTAL. Lime is never text on paper and never a panel colour.", "section": "colors" },
+      { "name": "The Two Grounds Rule", "body": "There are exactly two surfaces: night and paper. No grey cards, no gradients-as-surfaces, no third ground.", "section": "colors" },
+      { "name": "The Till Voice Rule", "body": "Anything printed on paper is Martian Mono with tabular figures, uppercase except the small sentence-case notes, and every label-value pair is joined by a dotted leader. Nothing on the night uses the mono, and nothing on the paper uses Bricolage or DM Sans.", "section": "typography" },
+      { "name": "The Tight Display Rule", "body": "Display and headline type is always 800 weight with negative tracking (-0.04em; -0.02em for document-page section heads) and line-height under 1.", "section": "typography" },
+      { "name": "The Objects-Only Rule", "body": "Only physical objects (slips, clips, the printer mouth, the play button) get shadows. Text blocks, the paper strip and the night never do.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do print every product fact on the paper as a mono line item with a dotted leader, and keep it literally true of the shipping app.",
+      "Do keep lime to one highlighted line per paper section, plus the TOTAL; on the night, to the headline's key phrase and interactive signals.",
+      "Do put text on lime in Night or Ink; lime is a fill behind dark text, never a text colour on paper.",
+      "Do bring screenshots and video in as tilted, clipped slips with the slip-lift shadow.",
+      "Do close the roll and every narrow-screen paper segment with the sawtooth tear.",
+      "Do show the receipt fully printed, with no clip-path or highlighter animation, under reduced motion or without JavaScript."
+    ],
+    "donts": [
+      "Don't add a third surface: no grey or tinted cards, no feature-card grids, no panels on the night.",
+      "Don't warm the paper toward cream; it stays cool (paper token).",
+      "Don't set prose, headlines or nav in the receipt mono, or line items in Bricolage or DM Sans.",
+      "Don't shadow the paper strip, text blocks or the night.",
+      "Don't restyle, recolour or dim the official App Store badge."
+    ]
+  }
+}
