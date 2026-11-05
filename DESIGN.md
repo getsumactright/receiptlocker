@@ -124,7 +124,7 @@ components:
 
 **Creative North Star: "The Receipt Roll"**
 
-The site is a single strip of cool thermal paper feeding down a near-black night. Persuasion happens in two registers that never mix: big, tight Bricolage Grotesque headlines and DM Sans prose stand on the night, while the facts are printed on the paper in an uppercase, condensed receipt mono, one dotted-leader line per thing the app really does. Screenshots and the film are not cards; they are slips clipped to the roll with a paperclip, tilted a degree or two, hanging over the paper's right edge.
+The site is a single strip of cool thermal paper feeding down a near-black night. Persuasion happens in two registers that never mix: big, tight Bricolage Grotesque headlines and DM Sans prose stand on the night, while the facts are printed on the paper in an uppercase, condensed receipt mono, one dotted-leader line per thing the app really does. Screenshots and the film are not cards; they are slips laid on the roll, tilted a degree or two, hanging over the paper's right edge.
 
 Density is that of a real receipt: tight line spacing, tabular figures, dashed rules between sections, a sawtooth tear where the paper breaks. Colour is almost absent. The night, the paper and the ink carry everything; lime is a signal, never a fill for its own sake. Motion is the printer's: lines print in left to right in stepped passes as each stretch of paper scrolls into view, and the highlighter swipes across the line that matters once it has printed.
 
@@ -134,7 +134,7 @@ On desktop the roll is a three-column grid (copy, strip, slips) with each sectio
 - One continuous paper strip (460px) on a night ground, centred in a three-column roll.
 - Two type worlds: display and prose on the night, condensed uppercase mono on the paper.
 - Lime as highlighter stroke and interactive signal only.
-- Evidence (screens, film) arrives as tilted slips clipped to the roll, with real drop shadows.
+- Evidence (screens, film) arrives as tilted slips laid on the roll, with real drop shadows.
 - Motion is a stepped print-head pass; reduced motion gets the receipt already printed.
 
 ## Colors
@@ -198,18 +198,17 @@ Content below the roll (fine print, footer) and document pages sit in centred co
 
 ## Elevation & Depth
 
-Surfaces are flat; depth belongs to physical objects. The night and paper never cast shadows on each other. Shadows appear only on things that would really sit above the paper: the printer mouth at the top of the roll, the screenshot slips, the film's mounted still, the paperclips and the play button. They are soft, dark and downward, like objects under a lamp.
+Surfaces are flat; depth belongs to physical objects. The night and paper never cast shadows on each other. Shadows appear only on things that would really sit above the paper: the printer mouth at the top of the roll, the screenshot slips, the film's mounted still and the play button. They are soft, dark and downward, like objects under a lamp.
 
 ### Shadow Vocabulary
 - **Slip lift** (`box-shadow: 0 0 0 1px #2c2d31, 0 22px 50px rgb(0 0 0 / 0.55), 0 4px 10px rgb(0 0 0 / 0.4)`): screenshot slips.
 - **Mounted still** (`box-shadow: 0 0 0 10px paper, 0 0 0 11px paper-2, 0 30px 70px rgb(0 0 0 / 0.6), 0 6px 14px rgb(0 0 0 / 0.4)`): the film frame on its paper mat.
 - **Printer mouth** (`box-shadow: 0 1px 0 #34353a inset, 0 10px 24px rgb(0 0 0 / 0.5)`): the feed slot the paper emerges from.
-- **Clip** (`filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.5))`): paperclips on slips.
 - **Play** (`box-shadow: 0 10px 24px rgb(0 0 0 / 0.45)`, hover `0 14px 28px rgb(0 0 0 / 0.5)`).
 - **Head fade**: an 18px gradient from night at 60% to transparent under the sticky head, instead of a border or shadow.
 
 ### Named Rules
-**The Objects-Only Rule.** Only physical objects (slips, clips, the printer mouth, the play button) get shadows. Text blocks, the paper strip and the night never do.
+**The Objects-Only Rule.** Only physical objects (slips, the printer mouth, the play button) get shadows. Text blocks, the paper strip and the night never do.
 
 ## Shapes
 
@@ -232,7 +231,7 @@ The paper is square-cornered and its ends are a sawtooth tear (an 18px-pitch zig
 - **Close:** a dashed rule, a decorative barcode drawn from the product name, then the sign-off.
 
 ### Slips
-- A screenshot in a 22px-rounded frame, or the film as a 9:16 still on a 10px paper mat, up to 300 to 318px wide, tilted, with an SVG paperclip over the top-left edge and a Quiet Text caption below.
+- A screenshot in a 22px-rounded frame, or the film as a 9:16 still on a 10px paper mat, up to 300 to 318px wide, tilted, with a Quiet Text caption below. No paperclip (removed 2026-11-04 at the owner's request).
 
 ### Navigation
 - Sticky 72px night head: lockup left, links right in Soft Text at 0.95rem with 8px vertical padding, Bright Text on hover and for the current page, then the App Store badge. No underline in the nav.
@@ -253,7 +252,7 @@ The paper is square-cornered and its ends are a sawtooth tear (an 18px-pitch zig
 - **Do** print every product fact on the paper as a mono line item with a dotted leader, and keep it literally true of the shipping app.
 - **Do** keep lime to one highlighted line per paper section, plus the TOTAL; on the night, to the headline's key phrase and interactive signals.
 - **Do** put text on lime in Night or Ink; lime is a fill behind dark text, never a text colour on paper.
-- **Do** bring screenshots and video in as tilted, clipped slips with the slip-lift shadow.
+- **Do** bring screenshots and video in as tilted slips with the slip-lift shadow.
 - **Do** close the roll and every narrow-screen paper segment with the sawtooth tear.
 - **Do** show the receipt fully printed, with no clip-path or highlighter animation, under reduced motion or without JavaScript.
 
