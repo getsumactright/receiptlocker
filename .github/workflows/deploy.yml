@@ -17,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SITE: https://getsumactright.github.io
+      BASE: /receiptlocker
     steps:
       - uses: actions/checkout@v4
       - uses: withastro/action@v3

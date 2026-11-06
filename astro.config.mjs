@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 
-// GitHub Pages project site: https://getsumactright.github.io/receiptlocker/
-// With a custom domain, set SITE to it and BASE to '/'.
-const SITE = process.env.SITE ?? 'https://getsumactright.github.io';
-const BASE = process.env.BASE ?? '/receiptlocker';
+// The site lives at the root of receiptlockerapp.com (Cloudflare builds it from this repo).
+// The GitHub Pages copy at getsumactright.github.io/receiptlocker/ sets SITE and BASE in its workflow.
+const SITE = process.env.SITE ?? 'https://receiptlockerapp.com';
+const BASE = process.env.BASE ?? '/';
 
 export default defineConfig({
   site: SITE,
