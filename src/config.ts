@@ -1,7 +1,7 @@
 // Facts the site prints. Keep them true of the shipping app (see PRODUCT.md).
 
-/** The App Store listing. Empty until the app is live; the badge then points at #get. */
-export const APP_STORE_URL = '';
+/** The App Store listing (live since 2026-11-09). If emptied, the badges fall back to "Coming soon". */
+export const APP_STORE_URL = 'https://apps.apple.com/us/app/receiptlocker-scan-store/id6821232956';
 
 export const CONTACT_EMAIL = 'privacy@wecanbuildthat.org';
 
